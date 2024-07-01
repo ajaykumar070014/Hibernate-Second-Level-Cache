@@ -42,3 +42,26 @@
 - **Username:** `postgres`
 - **Password:** `postgres`
 - **Driver Class Name:** `org.postgresql.Driver`
+
+
+## Configuration
+
+Ensure to configure your PostgreSQL database connection in `application.properties`:
+
+```properties
+spring.application.name=L2cache
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+server.port=8000
+spring.jpa.properties.hibernate.generate_statistics=true
+
+
+# Second level cache
+spring.jpa.properties.hibernate.cache.use_second_level_cache=true
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
